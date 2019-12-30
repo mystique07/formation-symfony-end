@@ -9,25 +9,19 @@ use Twig\Environment;
 
 class HomeController extends AbstractController {
 
+    /*private $environment;
     public function __construct(Environment $environment)
     {
         $this->environment = $environment;
-    }
+    }*/
 
     /**
      * @Route("/", name="home")
      * @return Response
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
      */
-    public function home()
+    public function home(): Response
     {
-        $html =$this->environment->render('home.html.twig',
-        [
-            'title' => 'eldy salut',
-            'age' => '31'
-            ]);
-        return new Response($html);
+        //$this->environment->render('home.html.twig');
+        return  $this->render('home.html.twig');
     }
 }

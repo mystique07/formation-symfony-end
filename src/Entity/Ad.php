@@ -46,13 +46,13 @@ class Ad
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="20", minMessage="Votre introduction doit faire plus de 20 caractères")
+     * @Assert\Length(min="20", minMessage="Votre introduction doit faire plus de 20 caractères.")
      */
     private $introduction;
 
     /**
-     * @ORM\Column(type="string")
-     * @Assert\Length(min="100", max="280" ,minMessage="Votre description  doit faire au moins 100 caractères ", maxMessage="moins de 250 caractères")
+     * @ORM\Column(type="text")
+     * @Assert\Length(min="100", minMessage="Votre description  doit faire au moins 100 caractères.")
      * @Assert\NotBlank()
      */
     private $content;
@@ -75,6 +75,12 @@ class Ad
      * @Assert\Valid()
      */
     private $images;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="ads")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
 
     public function __construct()
     {
@@ -212,6 +218,18 @@ class Ad
                 $image->setAd(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }
