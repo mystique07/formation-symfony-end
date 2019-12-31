@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Ad;
 use App\Entity\Image;
+use App\Entity\Role;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -29,6 +30,20 @@ class AppFixtures extends Fixture
     {
         $faker = Factory::create('fr-FR');
 
+        $adminRole = new Role();
+        $adminRole->setTitle('ROLE_ADMIN');
+        $manager->persist($adminRole);
+        $adminUser = new User();
+        $adminUser->setFirstName('eldy')
+            ->setLastName('mina')
+            ->setEmail('mina@gmail.com')
+            ->setHash($this->encoder->encodePassword($adminUser, 'password'))
+            ->setPicture('https://randomuser.me/api/portraits/men/53.jpg')
+            ->setIntroduction($faker->sentence())
+            ->setDescription($faker->realText(600))
+            ->addUserRole($adminRole);
+        $manager->persist($adminUser);
+
         //Nous gerons des Utilisatuers
         $users= [];
         $genres =['male', 'female'];
@@ -39,7 +54,7 @@ class AppFixtures extends Fixture
             $picture ='https://randomuser.me/api/portraits/';
             $picture_id = $faker->numberBetween(1, 99). '.jpg';
 
-             $picture .= ($genre === 'male' ? 'men/' : 'women') . $picture_id;
+             $picture .= ($genre === 'male' ? 'men/'  : 'women') . $picture_id;
             $hash = $this->encoder->encodePassword($user, 'password');
             try {
                 $user->setFirstName($faker->firstName($genre))
@@ -50,7 +65,7 @@ class AppFixtures extends Fixture
                     ->setPicture($picture)
                     ->setHash($hash);
             } catch (\Exception $e) {
-                echo "Erreurs $e";
+                echo 'Erreurs'. $e;
             }
             $manager->persist($user);
             $manager->flush();
