@@ -7,6 +7,7 @@
         "ext-iconv": "*",
         "cocur/slugify": "^4.0",
         "fzaninotto/faker": "^1.9",
+        "laminas/laminas-zendframework-bridge": "^1.0",
         "sensio/framework-extra-bundle": "^5.5",
         "sensiolabs/security-checker": "^6.0",
         "symfony/asset": "4.4.*",
@@ -28,7 +29,8 @@
         "symfony/twig-pack": "^1.0",
         "symfony/validator": "4.4.*",
         "symfony/web-link": "4.4.*",
-        "symfony/yaml": "4.4.*"
+        "symfony/yaml": "4.4.*",
+      "ext-cassandra": "*"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",
