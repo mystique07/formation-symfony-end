@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Ad;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method Ad|null find($id, $lockMode = null, $lockVersion = null)
@@ -12,7 +12,7 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  * @method Ad[]    findAll()
  * @method Ad[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AdRepository extends ServiceEntityRepository
+class AdRepository extends ServiceEntityRepository 
 {
     public function __construct(ManagerRegistry $registry)
     {

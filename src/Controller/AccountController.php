@@ -64,7 +64,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * Permet de se connecter
+     * Permet de se deconnecter
      *
      * @Route("/logout", name="account_logout")
      */
@@ -196,6 +196,7 @@ class AccountController extends AbstractController
     /**
      * Permet d'afficher la liste des reservations faites par l'utilisateur
      * @Route("/account/bookings", name="account_bookings")
+     * @IsGranted("ROLE_USER")
      * @return Response
      *
      */

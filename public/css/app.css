@@ -5,9 +5,28 @@ div.ad-tit h1 , div.ad-tit p{
     color: white;
     text-shadow: 3px 3px 3px rgba(0,0,0,0.5) ;
 }
+div.ad-tit .btn{
+    margin-top: 2em;
+    font-size: 1.5em;
+    line-height: 1.5em;
+
+}
 div.carousel-caption{
     text-shadow: 3px 3px 3px rgba(0,0,0,0.6) ;
 }
 .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
     color: firebrick !important;
 }
+
+span.rating i {
+    color: goldenrod;
+}
+
+.alert a{
+  text-decoration: none;
+}
+
+.alert .btn {
+    color: white;
+}
+

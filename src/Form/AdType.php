@@ -32,8 +32,6 @@ class AdType extends ApplicationType
                 'allow_add' => true,
                 'allow_delete' => true
 
-
-
             ])
         ;
     }

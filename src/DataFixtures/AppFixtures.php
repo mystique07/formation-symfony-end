@@ -4,11 +4,12 @@ namespace App\DataFixtures;
 
 use App\Entity\Ad;
 use App\Entity\Booking;
+use App\Entity\Comment;
 use App\Entity\Image;
 use App\Entity\Role;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -131,17 +132,24 @@ class AppFixtures extends Fixture
                     ->setCreatedAt($createdAt)
                     ->setAmount($amount)
                     ->setComment($comment);
+
+
                 $manager->persist($booking);
+
+                //Gestion des commenntaire
+                if (random_int(0,1)){
+                    $comment = new Comment();
+                    $comment->setContent($faker->paragraph)
+                        ->setRating(random_int(1, 5))
+                        ->setAuthor($booker)
+                        ->setAd($ad);
+
+                    $manager->persist($comment);
+                }
 
             }
             $manager->persist($ad);
         }
-        $manager->flush();
-
-
-        // $product = new Product();
-        // $manager->persist($product);
-
         $manager->flush();
     }
 }
