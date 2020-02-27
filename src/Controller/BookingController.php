@@ -22,9 +22,9 @@ class BookingController extends AbstractController
      * @param Ad $ad
      * @param Request $request
      * @param EntityManagerInterface $entityManager
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function book(Ad $ad, Request $request, EntityManagerInterface $entityManager)
+    public function book(Ad $ad, Request $request, EntityManagerInterface $entityManager): Response
     {
         $booking = new Booking();
 

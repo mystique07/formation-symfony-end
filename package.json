@@ -1,0 +1,31 @@
+{
+    "devDependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.27",
+        "@fortawesome/free-brands-svg-icons": "^5.12.1",
+        "@fortawesome/free-regular-svg-icons": "^5.12.1",
+        "@fortawesome/free-solid-svg-icons": "^5.12.1",
+        "@symfony/webpack-encore": "^0.28.2",
+        "core-js": "^3.0.0",
+        "regenerator-runtime": "^0.13.2",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.12.1",
+        "@popperjs/core": "^2.0.5",
+        "bootstrap": "^4.4.1",
+        "bootstrap-datepicker": "^1.9.0",
+        "bootstrap-datetimepicker-4.17.37": "^4.17.37",
+        "font-awesome": "^4.7.0",
+        "jquery": "^3.4.1",
+        "node-sass": "^4.13.1",
+        "popper.js": "^1.16.1"
+    }
+}

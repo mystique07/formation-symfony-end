@@ -1,4 +1,7 @@
-div.container{
+@import "./bootstrap.min.css";
+@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
+
+div.container, div.container-fluid{
     margin-top: 20px;
 }
 div.ad-tit h1 , div.ad-tit p{
@@ -18,7 +21,7 @@ div.carousel-caption{
     color: firebrick !important;
 }
 
-span.rating i {
+span.ratings i {
     color: goldenrod;
 }
 

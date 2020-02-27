@@ -4,6 +4,7 @@
     {% endblock %}
 
     {% block body %}
+
         <div class="container">
             <div class="jumbotron mt-md-3">
                 <h1 class="display-3">Bienvenue, CONGO-bnb !</h1>
@@ -17,100 +18,29 @@
             </div>
             <h2 class="h1 my-5" >Nos appartements starts</h2>
             <div class="row ">
-                <div class="col-md-4">
-                    <div class="card bg-light mb-3">
-                        <div class="card-header text-center">
-                            3 chambres, <strong>49&euro; / nuit</strong><br />
-                            <small>Pas encore noté</small>
-                        </div>
-                        <img src="http://placehold.it/1000x400" alt="Image de l'appartement" style="display: block; height: 200px; width: 100%">
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                Appartement de ouf !
-                            </h4>
-                            <p class="card-text">
-                                Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500
-                            </p>
-                            <a href="#" class="btn btn-secondary">
-                                En savoir Plus!
-                            </a>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-light mb-3">
-                        <div class="card-header text-center">
-                            3 chambres, <strong>49&euro; / nuit</strong><br />
-                            <small>Pas encore noté</small>
-                        </div>
-                        <img src="http://placehold.it/1000x400" alt="Image de l'appartement" style="display: block; height: 200px; width: 100%">
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                Appartement de ouf !
-                            </h4>
-                            <p class="card-text">
-                                Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500
-                            </p>
-                            <a href="#" class="btn btn-secondary">
-                                En savoir Plus!
-                            </a>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-light mb-3">
-                        <div class="card-header text-center">
-                            3 chambres, <strong>49&euro; / nuit</strong><br />
-                            <small>Pas encore noté</small>
-                        </div>
-                        <img src="http://placehold.it/1000x400" alt="Image de l'appartement" style="display: block; height: 200px; width: 100%">
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                Appartement de ouf !
-                            </h4>
-                            <p class="card-text">
-                                Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500
-                            </p>
-                            <a href="#" class="btn btn-secondary">
-                                En savoir Plus!
-                            </a>
-
-                        </div>
-                    </div>
-
-                </div>
+                {% for data in ads %}
+                    {% include 'ad/_ad.html.twig' with {'ad': data.annonce} %}
+                {% endfor %}
 
             </div>
             <h2 class="h1 my-5">Nos propriétaires Starts</h2>
             <div class="row">
+                {% for data in users %}
                 <div class="col">
                     <div class="card border-secondary mb-3">
                         <div class="card-body">
-                            <h4 class="card-title">Eldy Mav</h4>
+                            <h4 class="card-title">{{data.user.fullName}}</h4>
+                            <hr>
                             <div class="card-text">
-                                <img src="http://placehold.it/64x64" alt="Avatar de eldy" class="float-left mr-3">
+                                <img src="{{ data.user.picture }}" alt="{{ data.user.firstName }}" class="float-left mr-3">
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, ex!</p>
-                            <a href="#" class="btn btn-success float-right">En savoir plus!</a>
+                            <p>{{ data.user. introduction}}</p>
+                            <a href="{{ path('user_show', {'slug': data.user.slug}) }}" class="btn btn-success float-right">En savoir plus!</a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card border-secondary mb-3">
-                        <div class="card-body">
-                            <h4 class="card-title">Eldy Mav</h4>
-                            <div class="card-text">
-                                <img src="http://placehold.it/64x64" alt="Avatar de eldy" class="float-left mr-3">
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, ex!</p>
-                            <a href="#" class="btn btn-success float-right">En savoir plus!</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+
             </div>
         </div>
     {% endblock %}

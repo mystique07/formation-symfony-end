@@ -14,8 +14,8 @@
                 <h1>{{ user.fullName |upper}} </h1>
                 {% if user is same as (app.user) %}
                     <div class="mt-md-3">
-                        <a href="{{ path('account_profile') }}" class="btn btn-primary mr-2 mb-2">Modifier mes informations</a>
-                        <a href="{{ path('account_password') }}" class="btn btn-primary mb-2">Modifier mon mot de passe</a>
+                        <a href="{{ path('account_profile') }}" class="btn btn-primary mr-2 mb-2"><i class="fas fa-book-open"></i> Modifier mes informations</a>
+                        <a href="{{ path('account_password') }}" class="btn btn-primary mb-2"><i class="fas fa-pen"></i> Modifier mon mot de passe</a>
                     </div>
                 {% endif %}
             </div>
