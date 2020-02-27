@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <title>CONGO-bnb -{% block title %}Welcome!{% endblock %}</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/app.css">
-    <script src="https://kit.fontawesome.com/7ef714697f.js" crossorigin="anonymous"></script>
 
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 </head>
 <body>
 {% include 'admin/partial/header.html.twig' %}
 {% block body %}{% endblock %}
 {% include 'admin/partial/footer.html.twig' %}
-<script src="/js/jquery.min.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
 
-{% block javascripts %}{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
 </body>
 </html>
