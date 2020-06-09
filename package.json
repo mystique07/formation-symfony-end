@@ -27,6 +27,7 @@
         "jquery": "^3.4.1",
         "node-sass": "^4.13.1",
         "popper.js": "^1.16.1",
+        "websocket-extensions": "^0.1.4",
         "yarn": "^1.22.4"
     }
 }
