@@ -25,6 +25,7 @@
         "bootstrap-datetimepicker-4.17.37": "^4.17.37",
         "font-awesome": "^4.7.0",
         "jquery": "^3.4.1",
+        "lodash": "^4.17.19",
         "node-sass": "^4.13.1",
         "popper.js": "^1.16.1",
         "websocket-extensions": "^0.1.4",
